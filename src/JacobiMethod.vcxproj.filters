@@ -15,15 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="jacobi.cpp">
+    <ClCompile Include="FileName.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="jacobi_omp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="jacobi_serial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="jacobi.h">
+    <ClInclude Include="jacobi_omp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="jacobi_serial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
