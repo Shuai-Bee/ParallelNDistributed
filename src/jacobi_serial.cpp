@@ -15,8 +15,7 @@ using namespace std;
 // maxIter: maximum number of iterations
 // tol: stopping tolerance
 // ---------------------------------------------------------------
-void jacobi_serial(vector<vector<double>>& A, vector<double>& b,
-    int n, int maxIter)
+void jacobi_serial(vector<vector<double>>& A, vector<double>& b, int n, int maxIter, double tol)
 {
     // x stores current solution guess
     // x_new stores updated solution values
@@ -44,6 +43,10 @@ void jacobi_serial(vector<vector<double>>& A, vector<double>& b,
         double error = 0.0;
         for (int i = 0; i < n; i++)
             error += fabs(x_new[i] - x[i]);
+
+        // Check convergence
+        if (error < tol)
+            break;
 
         // Update solution vector
         x = x_new;

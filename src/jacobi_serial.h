@@ -8,6 +8,6 @@ using namespace std;
 // Solves Ax = b using the Jacobi iterative formula.
 void jacobi_serial(vector<vector<double>>& A,
     vector<double>& b,
-    int n, int maxIter);
+    int n, int maxIter, double tol);
 
 #endif
