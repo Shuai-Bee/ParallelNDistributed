@@ -21,10 +21,10 @@
     <ClCompile Include="jacobi_serial.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="jacobi_serial.cpp">
+    <ClCompile Include="jacobi_omp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="jacobi_omp.cpp">
+    <ClCompile Include="jacobi_serial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

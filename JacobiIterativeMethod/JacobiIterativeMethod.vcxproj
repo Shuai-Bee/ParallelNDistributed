@@ -125,9 +125,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="jacobi_omp.cpp" />
-    <ClCompile Include="jacobi_serial.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="jacobi_serial.h" />
+    <ClCompile Include="jacobi_serial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jacobi_omp.h" />
