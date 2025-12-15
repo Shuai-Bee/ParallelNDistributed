@@ -21,19 +21,14 @@ void printTitle() {
 }
 
 int main() {
-    int n, maxIter, numThreads;
-    double tol;
+    int n, numThreads;
+	int maxIter = 5000;
+    double tol = 1e-4;
 
     printTitle();
-    // User input: matrix size, max iterations, tolerance, threads
+    // User input: matrix size, threads
     cout << "Enter matrix size (e.g. 100, 300, 500): ";
     cin >> n;
-
-    cout << "Enter max iterations (e.g. 5000 or 10000): ";
-    cin >> maxIter;
-
-    cout << "Enter tolerance (e.g. 1e-4 or 1e-6): ";
-    cin >> tol;
 
     cout << "Enter number of threads (e.g. 1, 2, 4, 8): ";
     cin >> numThreads;

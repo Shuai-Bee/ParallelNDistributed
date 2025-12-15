@@ -17,7 +17,7 @@ using namespace std;
 // numThreads: number of threads to use
 // ---------------------------------------------------------------
 void jacobi_omp(vector<vector<double>>& A, vector<double>& b,
-    int n, int maxIter, double tol, int numThreads)
+    int n, int maxIter, int numThreads)
 {
     vector<double> x(n, 0.0), x_new(n, 0.0);
 
@@ -47,10 +47,6 @@ void jacobi_omp(vector<vector<double>>& A, vector<double>& b,
 #pragma omp parallel for reduction(+:error)
         for (int i = 0; i < n; i++)
             error += fabs(x_new[i] - x[i]);
-
-        // Stop if converged
-        if (error < tol)
-            break;
 
         // Update solution vector
         x = x_new;
