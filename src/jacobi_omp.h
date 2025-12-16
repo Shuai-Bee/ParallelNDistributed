@@ -2,11 +2,12 @@
 #define JACOBI_OMP_H
 
 #include <vector>
+#include <string>
 using namespace std;
 
 // Parallel Jacobi method using OpenMP threads.
 void jacobi_omp(vector<vector<double>>& A,
     vector<double>& b,
-    int n, int maxIter, double tol, int numThreads);
+    int n, int maxIter, double tol, int numThreads,string typeName);
 
 #endif

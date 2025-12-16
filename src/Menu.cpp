@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <string>
+#include <omp.h>
 #include "jacobi_serial.h"
 #include "jacobi_omp.h"
 
@@ -33,6 +35,8 @@ int main() {
     cout << "Enter number of threads (e.g. 1, 2, 4, 8): ";
     cin >> numThreads;
 
+    vector<string> schedules = { "Static", "Dynamic", "Guided","Auto"};
+
     // Create matrix A and vector b
     vector<vector<double>> A(n, vector<double>(n));
     vector<double> b(n);
@@ -40,14 +44,14 @@ int main() {
     // Generate diagonally dominant matrix
     // This ensures Jacobi method converges
     for (int i = 0; i < n; i++) {
-        double rowsum = 0.0;
-        for (int j = 0; j < n; j++) {
-            A[i][j] = rand() % 10 + 1;
-            if (i != j) rowsum += A[i][j];
-        }
-        // Increase diagonal value so that A[i][i] > sum of other elements
-        A[i][i] = rowsum + rand() % 5 + 5;
-        b[i] = rand() % 20 + 5;
+         double rowsum = 0.0;
+         for (int j = 0; j < n; j++) {
+             A[i][j] = rand() % 10 + 1;
+             if (i != j) rowsum += A[i][j];
+         }
+         // Increase diagonal value so that A[i][i] > sum of other elements
+         A[i][i] = rowsum + rand() % 5 + 5;
+         b[i] = rand() % 20 + 5;
     }
 
     // Run serial version
@@ -56,7 +60,11 @@ int main() {
 
     // Run OpenMP parallel version
     cout << "\nRunning OPENMP Jacobi..." << endl;
-    jacobi_omp(A, b, n, maxIter, tol, numThreads);
 
+        // Test different scheduling modes
+    for (const string& schedName : schedules) {
+        cout << "\n--- Mode: " << schedName << " ---" << endl;
+        jacobi_omp(A, b, n, maxIter, tol, numThreads, schedName);
+    }
 	return 0;
 }
