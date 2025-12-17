@@ -8,6 +8,14 @@
 
 using namespace std;
 
+bool isValidDigit(string str) {
+    if (str.empty()) return false;
+    for (char c : str) {
+        if (!isdigit(c)) return false;
+    }
+    return true;
+}
+
 void printTitle() {
     string title = "Jacobi Iterative Method";
     int width = 46; // total width of the border line
@@ -23,18 +31,39 @@ void printTitle() {
 }
 
 int main() {
+    string input;
     int n, numThreads;
 	int maxIter = 5000;
     double tol = 1e-4;
 
     printTitle();
     // User input: matrix size, threads
-    cout << "Enter matrix size (e.g. 100, 300, 500): ";
-    cin >> n;
+    while (true) {
+        cout << "Enter matrix size (e.g. 100, 300, 500): ";
+        cin >> input;
+        
+        if (isdigit(input[0])) {
+            n = stoi(input);
+            break;
+        }
+        else {
+			cout << "Input must be digit only" << endl;
+        }
+	}
 
-    cout << "Enter number of threads (e.g. 1, 2, 4, 8): ";
-    cin >> numThreads;
+    while (true) {
+        cout << "Enter number of threads (e.g. 1, 2, 4, 8): ";
+        cin >> input;
 
+        if (isdigit(input[0])) {
+            numThreads = stoi(input);
+            break;
+        }
+        else {
+            cout << "Input must be digit only" << endl;
+        }
+    }
+   
     vector<string> schedules = { "Static", "Dynamic", "Guided","Auto"};
 
     // Create matrix A and vector b

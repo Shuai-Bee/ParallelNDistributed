@@ -23,8 +23,6 @@ void jacobi_omp(vector<vector<double>>& A, vector<double>& b, int n, int maxIter
     // Set OpenMP thread count
     omp_set_num_threads(numThreads);
 
-    /*clock_t start = clock();*/  // start timing
-
 	double start = omp_get_wtime(); // start timing
 
     // Main iteration loop
