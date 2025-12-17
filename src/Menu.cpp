@@ -8,14 +8,6 @@
 
 using namespace std;
 
-bool isValidDigit(string str) {
-    if (str.empty()) return false;
-    for (char c : str) {
-        if (!isdigit(c)) return false;
-    }
-    return true;
-}
-
 void printTitle() {
     string title = "Jacobi Iterative Method";
     int width = 46; // total width of the border line
