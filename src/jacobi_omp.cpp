@@ -16,7 +16,7 @@ using namespace std;
 // b: constant vector
 // numThreads: number of threads to use
 // ---------------------------------------------------------------
-void jacobi_omp(vector<vector<double>>& A, vector<double>& b, int n, int maxIter, double tol, int numThreads,string typeName)
+void jacobi_omp(vector<vector<double>>& A, vector<double>& b, int n, int maxIter, double tol, int numThreads)
 {
     vector<double> x(n, 0.0), x_new(n, 0.0);
 
