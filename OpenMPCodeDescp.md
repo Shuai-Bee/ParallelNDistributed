@@ -2,7 +2,7 @@
 
 Loop fraction in OpenMP in Jacobi Interaction Method
 
-Full COde:
+Full Code:
 https://github.com/Shuai-Bee/ParallelNDistributed/blob/main/src/jacobi_omp.cpp
 
 ```cpp
