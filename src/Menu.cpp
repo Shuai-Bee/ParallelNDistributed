@@ -55,8 +55,6 @@ int main() {
             cout << "Input must be digit only" << endl;
         }
     }
-   
-    vector<string> schedules = { "Static", "Dynamic", "Guided","Auto"};
 
     // Create matrix A and vector b
     vector<vector<double>> A(n, vector<double>(n));
