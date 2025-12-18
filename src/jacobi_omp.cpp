@@ -23,25 +23,27 @@ void jacobi_omp(vector<vector<double>>& A, vector<double>& b, int n, int maxIter
     // Set OpenMP thread count
     omp_set_num_threads(numThreads);
 
-	double start = omp_get_wtime(); // start timing
+    clock_t start = clock();  // start timing
 
     // Main iteration loop
-	// OMP parallel for with different scheduling types
     for (int iter = 0; iter < maxIter; iter++) {
-       #pragma omp parallel for
-	    for (int i = 0; i < n; i++) {
+
+        // Parallel Jacobi update loop
+    #pragma omp parallel for
+        for (int i = 0; i < n; i++) {
 			double sigma = 0.0;             
-	
-	        // Compute sum of other terms in the row
-	        for (int j = 0; j < n; j++) {
-	            if (i != j) sigma += A[i][j] * x[j];
-	        }
-	
-	        x_new[i] = (b[i] - sigma) / A[i][i];
-	    }
+
+            // Compute sum of other terms in the row
+            for (int j = 0; j < n; j++) {
+                if (i != j) sigma += A[i][j] * x[j];
+            }
+
+            x_new[i] = (b[i] - sigma) / A[i][i];
+        }
+
         // Parallel reduction to compute total error
         double error = 0.0;
-        #pragma omp parallel for reduction(+:error)
+    #pragma omp parallel for reduction(+:error)
         for (int i = 0; i < n; i++)
             error += fabs(x_new[i] - x[i]);
 
@@ -53,15 +55,14 @@ void jacobi_omp(vector<vector<double>>& A, vector<double>& b, int n, int maxIter
         x = x_new;
     }
 
-    double end = omp_get_wtime();  // stop timing
-    double sec = (end - start);
+    clock_t end = clock();  // stop timing
+    double sec = (double)(end - start) / CLOCKS_PER_SEC;
 
     cout << "\n----------------------------------\n";
     cout << "OpenMP\n";
     cout << "----------------------------------\n";
 	cout << "Matrix size: " << n << " x " << n << "\n";
     cout << "Number of threads: " << numThreads << "\n";
-    cout << "OpenMP type: " << typeName << "\n";
     cout << "Time completed: " << sec << " s\n";
     cout << "----------------------------------\n";
    
