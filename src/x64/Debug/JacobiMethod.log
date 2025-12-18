@@ -1,0 +1,4 @@
+﻿  jacobi_omp.cpp
+D:\Parallel assignment\ParallelNDistributed\src\jacobi_omp.cpp(62,43): error C3022: 'schedule': invalid schedule kind of 'auto' on OpenMP 'parallel for' directive
+  Menu.cpp
+  Generating Code...
