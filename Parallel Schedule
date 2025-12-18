@@ -1,6 +1,6 @@
-## Parallel for 4 types schedule
+Parallel for 4 types schedule
 
-```cpp
+
 for (int iter = 0; iter < maxIter; iter++) {
     if (typeName == "Static") {
     #pragma omp parallel for schedule(static)
