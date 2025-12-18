@@ -2,7 +2,6 @@
 #define JACOBI_OMP_H
 
 #include <vector>
-#include <string>
 using namespace std;
 
 // Parallel Jacobi method using OpenMP threads.
