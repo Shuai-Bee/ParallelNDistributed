@@ -2,6 +2,9 @@
 
 Loop fraction in OpenMP in Jacobi Interaction Method
 
+Full COde:
+https://github.com/Shuai-Bee/ParallelNDistributed/blob/main/src/jacobi_omp.cpp
+
 ```cpp
 for (int iter = 0; iter < maxIter; iter++) {
 
