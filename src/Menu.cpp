@@ -81,9 +81,6 @@ int main() {
     cout << "\nRunning OPENMP Jacobi..." << endl;
 
         // Test different scheduling modes
-    for (const string& schedName : schedules) {
-        cout << "\n--- Mode: " << schedName << " ---" << endl;
-        jacobi_omp(A, b, n, maxIter, tol, numThreads, schedName);
-    }
+	jacobi_omp(A, b, n, maxIter, tol, numThreads);
 	return 0;
 }
