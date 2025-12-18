@@ -28,18 +28,15 @@ void jacobi_serial(vector<vector<double>>& A, vector<double>& b, int n, int maxI
 
         // Update each variable using Jacobi formula
         for (int i = 0; i < n; i++) {
-           double sigma = 0.0;
+            double sigma = 0.0;
 
-		// Compute the summation term: Σ (a_ij * x_j^(k)), where j ≠ i
-		for (int j = 0; j < n; j++) {
-		    if (i != j)
-		        sigma += A[i][j] * x[j];
-		}
-		
-		// Jacobi update formula:
-		// x_i^(k+1) = (1 / a_ii) * ( b_i − Σ(a_ij * x_j^(k)) )
-		x_new[i] = (b[i] - sigma) / A[i][i];
+            // Compute sum of A[i][j] * x[j] for j not equal to i
+            for (int j = 0; j < n; j++) {
+                if (i != j) sigma += A[i][j] * x[j];
+            }
 
+            // Compute new x value
+            x_new[i] = (b[i] - sigma) / A[i][i];
         }
 
         // Compute error = sum of absolute differences
