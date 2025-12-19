@@ -56,7 +56,7 @@ int main() {
         }
     }
    
-    vector<string> schedules = { "Static", "Dynamic", "Guided", "Auto", "Normal"};
+    vector<string> schedules = { "Static", "Dynamic", "Guided", "Runtime", "Normal"};
 
     // Create matrix A and vector b
     vector<vector<double>> A(n, vector<double>(n));
@@ -89,3 +89,4 @@ int main() {
     }
 	return 0;
 }
+
