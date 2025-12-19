@@ -59,7 +59,7 @@ void jacobi_omp(vector<vector<double>>& A, vector<double>& b, int n, int maxIter
             }
         }
         else if (typeName == "Auto") {
-        #pragma omp parallel for schedule(auto)
+        #pragma omp parallel for schedule(runtime)
             for (int i = 0; i < n; i++) {
                 double sigma = 0.0;
                 for (int j = 0; j < n; j++) {
@@ -105,3 +105,4 @@ void jacobi_omp(vector<vector<double>>& A, vector<double>& b, int n, int maxIter
     cout << "----------------------------------\n";
    
 }
+
