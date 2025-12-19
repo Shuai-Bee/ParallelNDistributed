@@ -1,6 +1,7 @@
 ## Jacobi Iterative Method
 
  Loop fraction in sequential in Jacobi Interaction Method
+ 
  To view the full version of code, visit here:
  https://github.com/Shuai-Bee/ParallelNDistributed/blob/main/src/jacobi_serial.cpp
 
